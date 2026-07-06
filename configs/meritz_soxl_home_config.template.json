@@ -1,0 +1,75 @@
+{
+  "desktop": {
+    "target_index": 2,
+    "switch_to_desktop_on_run": false,
+    "move_direction": "right",
+    "move_steps": 1,
+    "focus_delay_ms": 800
+  },
+  "signal": {
+    "provider": "json_file",
+    "signal_file": "signals/meritz_soxl_signal.example.json",
+    "poll_seconds": 2
+  },
+  "safety": {
+    "dry_run": true,
+    "allowed_symbols": [
+      "SOXL"
+    ],
+    "allowed_actions": [
+      "BUY",
+      "SELL"
+    ],
+    "max_orders_per_day": 4,
+    "max_qty_per_order": 2,
+    "cooldown_seconds": 1800,
+    "cooldown_seconds_by_action": {
+      "BUY": 1800,
+      "SELL": 0
+    },
+    "stale_signal_seconds": 90,
+    "emergency_stop_file": "STOP_TRADING.txt"
+  },
+  "ui": {
+    "default_qty": 1,
+    "settle_delay_ms": 250,
+    "confirm_after_order": false,
+    "confirm_delay_ms": 800,
+    "focus_click": [
+      0,
+      0
+    ],
+    "confirm_button": null,
+    "shared_order_panel": {
+      "panel_anchor": null,
+      "symbol_input": null,
+      "qty_input": null,
+      "buy_button": null,
+      "sell_button": null
+    },
+    "symbols": {
+      "SOXL": {
+        "panel_anchor": [
+          0,
+          0
+        ],
+        "qty_input": [
+          0,
+          0
+        ],
+        "buy_button": [
+          0,
+          0
+        ],
+        "sell_button": [
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "paths": {
+    "state_file": "meritz_soxl_state.json",
+    "log_file": "meritz_soxl_bot.log"
+  }
+}
