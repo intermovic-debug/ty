@@ -1,0 +1,18 @@
+# Local/runtime files
+*.log
+*_state.json
+meritz_state.json
+STOP_TRADING.txt
+capture*.png
+*.png
+
+# Never commit live configs with local coordinates/account context
+*live*.json
+*local*.json
+meritz_soxl_month_config.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
