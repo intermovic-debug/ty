@@ -9,6 +9,8 @@ capture*.png
 # Never commit live configs with local coordinates/account context
 *live*.json
 *local*.json
+*.local.json
+*.local.md
 meritz_soxl_month_config.json
 
 # Python
