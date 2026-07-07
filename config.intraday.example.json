@@ -1,0 +1,46 @@
+﻿{
+  "account": {
+    "base_currency": "USD",
+    "starting_cash": 3000.00,
+    "max_position_pct": 0.18,
+    "risk_per_trade_pct": 0.003,
+    "max_daily_loss_pct": 0.01
+  },
+  "strategy": {
+    "symbols": ["SOXL", "SOXS"],
+    "universe_path": "universe.example.json",
+    "active_groups": ["Semiconductors 3x", "Nasdaq 100 3x"],
+    "max_candidates": 1,
+    "interval": "15m",
+    "range_days": 5,
+    "fast_ema": 8,
+    "slow_ema": 21,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "entry_score": 5,
+    "min_momentum_pct": 0.004,
+    "min_entry_rsi": 48,
+    "max_entry_rsi": 68,
+    "stop_loss_pct": 0.007,
+    "take_profit_pct": 0.013,
+    "trailing_stop_pct": 0.005,
+    "cooldown_minutes": 60,
+    "max_trades_per_day": 2,
+    "stale_after_minutes": 45
+  },
+  "runtime": {
+    "mode": "paper",
+    "state_path": "data/intraday_state.json",
+    "trade_log_path": "logs/intraday_trades.csv",
+    "report_markdown_path": "reports/intraday_latest.md",
+    "report_html_path": "reports/intraday_latest.html",
+    "order_ticket_path": "reports/order_ticket.html",
+    "account_snapshot_path": "account_snapshot.json",
+    "account_snapshot_max_age_minutes": 720,
+    "require_fresh_account_snapshot": true,
+    "sync_cash_from_snapshot": true,
+    "notify_on_action": true,
+    "notification_script": "notify_signal.ps1"
+  }
+}
+

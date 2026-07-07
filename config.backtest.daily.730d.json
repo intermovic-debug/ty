@@ -1,0 +1,7 @@
+﻿{
+  "base_config": "config.example.json",
+  "range_days": 730,
+  "warmup_days": 160,
+  "report_path": "reports/backtest_daily_730d.md"
+}
+

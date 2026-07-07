@@ -1,0 +1,6 @@
+﻿{
+  "base_config": "config.intraday.optimized_forward_paper.json",
+  "range_days": 60,
+  "report_path": "reports/backtest_intraday_forward_paper_60d.md"
+}
+

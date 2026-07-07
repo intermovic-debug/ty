@@ -1,0 +1,6 @@
+﻿{
+  "base_config": "config.intraday.example.json",
+  "range_days": 30,
+  "report_path": "reports/backtest_intraday.md"
+}
+

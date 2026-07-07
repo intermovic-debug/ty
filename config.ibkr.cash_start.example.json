@@ -1,0 +1,64 @@
+﻿{
+  "connection": {
+    "host": "127.0.0.1",
+    "port": 7497,
+    "client_id": 37,
+    "readonly": false,
+    "timeout_seconds": 8
+  },
+  "safety": {
+    "dry_run": true,
+    "paper_only": true,
+    "allow_order_create": false,
+    "transmit_orders": false,
+    "allowed_symbols": ["SOXL", "SOXS", "TQQQ", "SQQQ"],
+    "paper_ports": [7497, 4002],
+    "max_order_qty": 3,
+    "max_daily_orders": 2,
+    "limit_order_only": true,
+    "outside_rth": false,
+    "tif": "DAY",
+    "order_ref": "soxswing-cash-start",
+    "emergency_stop_path": "STOP_TRADING.txt"
+  },
+  "market_data": {
+    "source": "ibkr",
+    "ibkr_market_data_type": 3,
+    "allow_delayed_quotes_for_trading": false,
+    "interval": "15m",
+    "range_days": 5,
+    "stale_after_minutes": 45,
+    "confirm_symbols": ["SOXX", "QQQ", "NVDA"]
+  },
+  "strategy": {
+    "base_symbol": "SOXL",
+    "hedge_symbol": "SOXS",
+    "recovery_position": {
+      "quantity": 0,
+      "average_price": 0.0
+    },
+    "recovery_sell_ladder": [],
+    "limit_price_buffer_pct": 0.002,
+    "scalp": {
+      "enabled": true,
+      "max_quantity": 1,
+      "entry_trigger": 0.0,
+      "take_profit_pct": 0.02,
+      "stop_loss_pct": 0.005,
+      "min_green_confirmations": 2
+    },
+    "soxs_hedge": {
+      "enabled": false,
+      "max_quantity": 1,
+      "trigger_soxl_drop_pct": 0.08
+    }
+  },
+  "runtime": {
+    "state_path": "data/ibkr_cash_start_state.json",
+    "report_path": "reports/ibkr_cash_start_report.md",
+    "ticket_path": "reports/ibkr_cash_start_ticket.md",
+    "log_path": "logs/ibkr_cash_start.csv",
+    "poll_seconds": 30
+  }
+}
+

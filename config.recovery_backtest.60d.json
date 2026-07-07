@@ -1,0 +1,29 @@
+﻿{
+  "base_config": "config.intraday.optimized_forward_paper.json",
+  "range_days": 60,
+  "report_path": "reports/backtest_recovery_realistic_60d.md",
+  "initial": {
+    "cash_usd": 0.0,
+    "recovery_symbol": "SOXL",
+    "recovery_quantity": 33,
+    "recovery_average_price": 239.4187
+  },
+  "recovery_sell_ladder": [
+    {"target_price": 220.50, "quantity": 8},
+    {"target_price": 235.50, "quantity": 8},
+    {"target_price": 245.50, "quantity": 17}
+  ],
+  "execution": {
+    "decision": "closed_bar_next_open",
+    "commission_per_share": 0.005,
+    "minimum_commission": 1.0,
+    "slippage_bps": 5,
+    "allow_fractional": false
+  },
+  "scalp_overlay": {
+    "enabled": true,
+    "allow_long_soxl_while_recovery_open": false,
+    "allow_inverse_etf_while_recovery_open": true
+  }
+}
+

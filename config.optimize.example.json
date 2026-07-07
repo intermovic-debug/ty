@@ -1,0 +1,21 @@
+﻿{
+  "base_config": "config.intraday.example.json",
+  "range_days": 30,
+  "split_pct": 0.7,
+  "report_path": "reports/optimize_intraday.md",
+  "candidate_config_path": "config.intraday.optimized_candidate.json",
+  "max_acceptable_drawdown_pct": 0.03,
+  "min_test_trades": 4,
+  "grid": {
+    "account.max_position_pct": [0.18, 0.24, 0.30],
+    "account.risk_per_trade_pct": [0.003, 0.005],
+    "strategy.entry_score": [4, 5],
+    "strategy.min_momentum_pct": [0.002, 0.003, 0.004],
+    "strategy.min_entry_rsi": [42, 45, 48],
+    "strategy.max_entry_rsi": [68, 72, 76],
+    "strategy.stop_loss_pct": [0.005, 0.007, 0.009],
+    "strategy.take_profit_pct": [0.012, 0.016, 0.020],
+    "strategy.trailing_stop_pct": [0.004, 0.006, 0.008]
+  }
+}
+

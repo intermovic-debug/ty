@@ -39,3 +39,7 @@ Keep the default config safe:
 - `reports/`
 - screenshots
 - `*.local.json`
+<<<<<<< HEAD
+=======
+
+>>>>>>> 85253ad (Add IBKR cash-start strategy workspace)

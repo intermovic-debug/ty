@@ -1,0 +1,109 @@
+﻿{
+  "base_config": "config.intraday.optimized_forward_paper.json",
+  "range_days": 60,
+  "report_path": "reports/backtest_cash_realistic_sweep_60d.md",
+  "execution": {
+    "commission_per_share": 0.005,
+    "minimum_commission": 1.0,
+    "slippage_bps": 5
+  },
+  "variants": [
+    {
+      "name": "semis_conservative",
+      "active_groups": ["Semiconductors 3x"],
+      "account": {"max_position_pct": 0.18, "risk_per_trade_pct": 0.002},
+      "strategy": {
+        "entry_score": 5,
+        "min_momentum_pct": 0.004,
+        "min_entry_rsi": 45,
+        "max_entry_rsi": 68,
+        "stop_loss_pct": 0.007,
+        "take_profit_pct": 0.012,
+        "trailing_stop_pct": 0.006,
+        "cooldown_minutes": 90,
+        "max_trades_per_day": 1
+      }
+    },
+    {
+      "name": "semis_balanced",
+      "active_groups": ["Semiconductors 3x"],
+      "account": {"max_position_pct": 0.24, "risk_per_trade_pct": 0.003},
+      "strategy": {
+        "entry_score": 4,
+        "min_momentum_pct": 0.003,
+        "min_entry_rsi": 42,
+        "max_entry_rsi": 72,
+        "stop_loss_pct": 0.006,
+        "take_profit_pct": 0.016,
+        "trailing_stop_pct": 0.006,
+        "cooldown_minutes": 75,
+        "max_trades_per_day": 2
+      }
+    },
+    {
+      "name": "semis_optimized",
+      "active_groups": ["Semiconductors 3x"],
+      "account": {"max_position_pct": 0.30, "risk_per_trade_pct": 0.003},
+      "strategy": {
+        "entry_score": 4,
+        "min_momentum_pct": 0.002,
+        "min_entry_rsi": 42,
+        "max_entry_rsi": 76,
+        "stop_loss_pct": 0.005,
+        "take_profit_pct": 0.020,
+        "trailing_stop_pct": 0.006,
+        "cooldown_minutes": 60,
+        "max_trades_per_day": 2
+      }
+    },
+    {
+      "name": "multi_conservative",
+      "active_groups": ["Semiconductors 3x", "Nasdaq 100 3x"],
+      "account": {"max_position_pct": 0.18, "risk_per_trade_pct": 0.002},
+      "strategy": {
+        "entry_score": 5,
+        "min_momentum_pct": 0.004,
+        "min_entry_rsi": 45,
+        "max_entry_rsi": 68,
+        "stop_loss_pct": 0.007,
+        "take_profit_pct": 0.012,
+        "trailing_stop_pct": 0.006,
+        "cooldown_minutes": 90,
+        "max_trades_per_day": 1
+      }
+    },
+    {
+      "name": "multi_optimized",
+      "active_groups": ["Semiconductors 3x", "Nasdaq 100 3x"],
+      "account": {"max_position_pct": 0.30, "risk_per_trade_pct": 0.003},
+      "strategy": {
+        "entry_score": 4,
+        "min_momentum_pct": 0.002,
+        "min_entry_rsi": 42,
+        "max_entry_rsi": 76,
+        "stop_loss_pct": 0.005,
+        "take_profit_pct": 0.020,
+        "trailing_stop_pct": 0.006,
+        "cooldown_minutes": 60,
+        "max_trades_per_day": 2
+      }
+    },
+    {
+      "name": "multi_aggressive",
+      "active_groups": ["Semiconductors 3x", "Nasdaq 100 3x"],
+      "account": {"max_position_pct": 0.35, "risk_per_trade_pct": 0.005},
+      "strategy": {
+        "entry_score": 4,
+        "min_momentum_pct": 0.002,
+        "min_entry_rsi": 42,
+        "max_entry_rsi": 78,
+        "stop_loss_pct": 0.005,
+        "take_profit_pct": 0.024,
+        "trailing_stop_pct": 0.008,
+        "cooldown_minutes": 45,
+        "max_trades_per_day": 3
+      }
+    }
+  ]
+}
+

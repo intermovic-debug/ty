@@ -1,0 +1,30 @@
+﻿{
+  "account": {
+    "base_currency": "USD",
+    "starting_cash": 3000.00,
+    "max_position_pct": 0.45,
+    "risk_per_trade_pct": 0.015
+  },
+  "strategy": {
+    "symbols": ["SOXL", "SOXS"],
+    "fast_ma": 5,
+    "slow_ma": 20,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "momentum_days": 3,
+    "stop_atr_multiple": 1.6,
+    "take_profit_atr_multiple": 2.4,
+    "min_signal_score": 3
+  },
+  "runtime": {
+    "broker": "paper",
+    "mode": "advisory",
+    "state_path": "data/state.json",
+    "trade_log_path": "logs/trades.csv",
+    "report_markdown_path": "reports/latest.md",
+    "report_html_path": "reports/latest.html",
+    "use_state_in_advisory": false,
+    "dry_run": true
+  }
+}
+

@@ -1,0 +1,6 @@
+﻿{
+  "base_config": "config.intraday.optimized_candidate.json",
+  "range_days": 30,
+  "report_path": "reports/backtest_intraday_optimized.md"
+}
+

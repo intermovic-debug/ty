@@ -1,0 +1,80 @@
+﻿{
+  "connection": {
+    "host": "127.0.0.1",
+    "port": 7497,
+    "client_id": 27,
+    "readonly": false,
+    "timeout_seconds": 8
+  },
+  "safety": {
+    "dry_run": true,
+    "paper_only": true,
+    "allow_order_create": false,
+    "transmit_orders": false,
+    "allowed_symbols": ["SOXL", "SOXS"],
+    "paper_ports": [7497, 4002],
+    "max_order_qty": 8,
+    "max_daily_orders": 3,
+    "limit_order_only": true,
+    "outside_rth": false,
+    "tif": "DAY",
+    "order_ref": "soxswing-ibkr",
+    "emergency_stop_path": "STOP_TRADING.txt"
+  },
+  "market_data": {
+    "source": "ibkr",
+    "ibkr_market_data_type": 3,
+    "allow_delayed_quotes_for_trading": false,
+    "interval": "15m",
+    "range_days": 5,
+    "stale_after_minutes": 45,
+    "confirm_symbols": ["SOXX", "QQQ", "NVDA"]
+  },
+  "strategy": {
+    "base_symbol": "SOXL",
+    "hedge_symbol": "SOXS",
+    "recovery_position": {
+      "quantity": 33,
+      "average_price": 239.4187
+    },
+    "recovery_sell_ladder": [
+      {
+        "name": "risk_trim",
+        "target_price": 220.5,
+        "quantity": 8
+      },
+      {
+        "name": "mid_recovery",
+        "target_price": 235.5,
+        "quantity": 8
+      },
+      {
+        "name": "average_recovery",
+        "target_price": 245.5,
+        "quantity": 17
+      }
+    ],
+    "limit_price_buffer_pct": 0.002,
+    "scalp": {
+      "enabled": false,
+      "max_quantity": 1,
+      "entry_trigger": 202.5,
+      "take_profit_pct": 0.015,
+      "stop_loss_pct": 0.008,
+      "min_green_confirmations": 2
+    },
+    "soxs_hedge": {
+      "enabled": false,
+      "max_quantity": 1,
+      "trigger_soxl_drop_pct": 0.08
+    }
+  },
+  "runtime": {
+    "state_path": "data/ibkr_state.json",
+    "report_path": "reports/ibkr_runner_report.md",
+    "ticket_path": "reports/ibkr_order_ticket.md",
+    "log_path": "logs/ibkr_runner.csv",
+    "poll_seconds": 30
+  }
+}
+

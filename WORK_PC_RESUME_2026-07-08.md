@@ -86,3 +86,7 @@ python -m soxswing.optimize_cash_realistic --range-days 60 --minimum-commission 
 - `config.ibkr.cash_start.example.json` keeps `dry_run=true`, `allow_order_create=false`, and `transmit_orders=false`.
 - IBKR delayed quotes are blocked for actionable tickets by default.
 - Keep `STOP_TRADING.txt` as emergency stop behavior for any future live-capable runner.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 85253ad (Add IBKR cash-start strategy workspace)

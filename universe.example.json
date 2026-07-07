@@ -1,0 +1,29 @@
+{
+  "groups": [
+    {
+      "name": "Semiconductors 3x",
+      "symbols": ["SOXL", "SOXS"],
+      "note": "Direxion daily semiconductor bull/bear 3x"
+    },
+    {
+      "name": "Nasdaq 100 3x",
+      "symbols": ["TQQQ", "SQQQ"],
+      "note": "ProShares daily Nasdaq-100 bull/bear 3x"
+    },
+    {
+      "name": "Technology 3x",
+      "symbols": ["TECL", "TECS"],
+      "note": "Direxion daily technology bull/bear 3x"
+    },
+    {
+      "name": "S&P 500 3x",
+      "symbols": ["SPXL", "SPXS"],
+      "note": "Direxion daily S&P 500 bull/bear 3x"
+    },
+    {
+      "name": "FANG+ 3x ETN",
+      "symbols": ["FNGU", "FNGD"],
+      "note": "MicroSectors FANG+ leveraged/inverse ETNs; confirm iMeritz availability"
+    }
+  ]
+}

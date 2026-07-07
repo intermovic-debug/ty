@@ -1,20 +1,28 @@
-# Local/runtime files
-*.log
+# Python/runtime
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local market/account state
+account_snapshot.json
+account_snapshot*.json
 *_state.json
 meritz_state.json
 STOP_TRADING.txt
-capture*.png
-*.png
-
-# Never commit live configs with local coordinates/account context
-*live*.json
-*local*.json
 *.local.json
 *.local.md
-meritz_soxl_month_config.json
+*live*.json
+data/
+logs/
+reports/
 
-# Python
-__pycache__/
-*.pyc
-.venv/
-venv/
+# iMeritz / desktop screenshots and captures
+captures/
+*.png
+
+# Editor/OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
