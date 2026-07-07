@@ -1,0 +1,33 @@
+{
+  "ibkr": {
+    "host": "127.0.0.1",
+    "port": 7497,
+    "client_id": 7,
+    "paper_trading": true
+  },
+  "trading": {
+    "symbol": "SOXL",
+    "exchange": "SMART",
+    "currency": "USD",
+    "allow_live_orders": false,
+    "outside_rth": false,
+    "max_qty_per_order": 1,
+    "max_total_soxl_exposure": 0,
+    "limit_order_only": true
+  },
+  "recovery_position": {
+    "qty": 0,
+    "avg_price": 0,
+    "sell_ladder": []
+  },
+  "scalp_rules": {
+    "enabled": false,
+    "max_scalp_qty_when_recovery_qty_gte_30": 2,
+    "max_scalp_qty_after_first_recovery_sale": 8,
+    "max_scalp_qty_after_second_recovery_sale": 12,
+    "take_profit_pct_1": 1.5,
+    "take_profit_pct_2": 2.8,
+    "stop_loss_pct": 1.5,
+    "max_failed_trades_per_day": 2
+  }
+}
