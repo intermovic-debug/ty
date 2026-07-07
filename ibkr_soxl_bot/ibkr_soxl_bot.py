@@ -65,12 +65,16 @@ def _import_ib_insync():
 def connect_ib(config: Config):
     IB, _Stock, _LimitOrder = _import_ib_insync()
     ib = IB()
-    ib.connect(
-        config.ibkr.get("host", "127.0.0.1"),
-        int(config.ibkr.get("port", 7497)),
-        clientId=int(config.ibkr.get("client_id", 7)),
-        timeout=10,
-    )
+    host = config.ibkr.get("host", "127.0.0.1")
+    port = int(config.ibkr.get("port", 7497))
+    client_id = int(config.ibkr.get("client_id", 7))
+    try:
+        ib.connect(host, port, clientId=client_id, timeout=10)
+    except Exception as exc:
+        raise BotError(
+            "IBKR API connection failed. Start TWS/IB Gateway, log in to the "
+            f"matching account, and confirm API socket port {port} is enabled."
+        ) from exc
     return ib
 
 
