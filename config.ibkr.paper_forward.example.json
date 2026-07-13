@@ -1,0 +1,41 @@
+{
+  "connection": {
+    "host": "127.0.0.1",
+    "port": 7497,
+    "client_id": 47,
+    "readonly": false,
+    "timeout_seconds": 10
+  },
+  "safety": {
+    "dry_run": true,
+    "paper_only": true,
+    "allow_order_create": false,
+    "transmit_orders": false,
+    "allowed_symbols": ["SOXL", "SOXS"],
+    "paper_ports": [7497, 4002],
+    "max_order_qty": 1,
+    "limit_order_only": true,
+    "outside_rth": false,
+    "tif": "DAY",
+    "order_ref": "soxswing-paper-forward"
+  },
+  "market_data": {
+    "source": "ibkr",
+    "ibkr_market_data_type": 1,
+    "duration": "5 D",
+    "bar_size": "15 mins",
+    "use_rth": true,
+    "poll_seconds": 60
+  },
+  "strategy_config_path": "config.intraday.cash_optimized_semis_ibkr_1y.json",
+  "forward_test": {
+    "symbols": ["SOXL", "SOXS"],
+    "fixed_qty": 1,
+    "max_notional_usd": 300,
+    "max_orders_per_day": 2,
+    "buy_limit_buffer_pct": 0.001,
+    "sell_limit_buffer_pct": 0.001,
+    "runtime_dir": "ibkr_runtime/paper_forward",
+    "require_du_account_for_orders": true
+  }
+}
