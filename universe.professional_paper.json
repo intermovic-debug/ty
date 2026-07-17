@@ -1,0 +1,100 @@
+{
+  "groups": [
+    {
+      "name": "Broad Market 1x",
+      "note": "Liquid unleveraged index ETFs. Only one correlated US equity position should be opened at a time.",
+      "symbols": [
+        {
+          "symbol": "SPY",
+          "correlation_group": "us_equity",
+          "direction": "long",
+          "leverage": 1.0,
+          "benchmark": "SPY",
+          "allowed_regimes": ["risk_on", "mixed"],
+          "max_position_pct": 0.1
+        },
+        {
+          "symbol": "QQQ",
+          "correlation_group": "us_equity",
+          "direction": "long",
+          "leverage": 1.0,
+          "benchmark": "QQQ",
+          "allowed_regimes": ["risk_on", "mixed"],
+          "max_position_pct": 0.1
+        },
+        {
+          "symbol": "IWM",
+          "correlation_group": "us_equity",
+          "direction": "long",
+          "leverage": 1.0,
+          "benchmark": "IWM",
+          "allowed_regimes": ["risk_on"],
+          "max_position_pct": 0.08
+        }
+      ]
+    },
+    {
+      "name": "Semiconductors 1x",
+      "note": "Unleveraged semiconductor exposure. Kept separate from the protected SOXL recovery holding.",
+      "symbols": [
+        {
+          "symbol": "SOXX",
+          "correlation_group": "semiconductors",
+          "direction": "long",
+          "leverage": 1.0,
+          "benchmark": "SOXX",
+          "allowed_regimes": ["risk_on"],
+          "max_position_pct": 0.08
+        }
+      ]
+    },
+    {
+      "name": "Defensive Diversifiers",
+      "note": "Liquid defensive candidates. These are candidates, not guaranteed hedges.",
+      "symbols": [
+        {
+          "symbol": "TLT",
+          "correlation_group": "rates_defensive",
+          "direction": "long",
+          "leverage": 1.0,
+          "benchmark": "TLT",
+          "allowed_regimes": ["mixed", "risk_off"],
+          "max_position_pct": 0.08
+        },
+        {
+          "symbol": "GLD",
+          "correlation_group": "gold_defensive",
+          "direction": "long",
+          "leverage": 1.0,
+          "benchmark": "GLD",
+          "allowed_regimes": ["mixed", "risk_off"],
+          "max_position_pct": 0.08
+        }
+      ]
+    },
+    {
+      "name": "Leveraged Research Only",
+      "note": "Disabled by default. Activate only after separate walk-forward and paper validation.",
+      "symbols": [
+        {
+          "symbol": "SOXL",
+          "correlation_group": "semiconductors",
+          "direction": "long",
+          "leverage": 3.0,
+          "benchmark": "SOXX",
+          "allowed_regimes": ["risk_on"],
+          "max_position_pct": 0.04
+        },
+        {
+          "symbol": "TQQQ",
+          "correlation_group": "us_equity",
+          "direction": "long",
+          "leverage": 3.0,
+          "benchmark": "QQQ",
+          "allowed_regimes": ["risk_on"],
+          "max_position_pct": 0.04
+        }
+      ]
+    }
+  ]
+}

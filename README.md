@@ -87,6 +87,35 @@ IBKR cash-start route after closing the old SOXL position:
 python -m soxswing.ibkr_runner --config .\config.ibkr.cash_start.example.json plan
 ```
 
+Regime-aware diversified paper scan with no order-placement code path:
+
+```powershell
+python collect_ibkr_news_context.py --config .\config.ibkr.regime_paper.example.json
+python run_ibkr_regime_paper.py --config .\config.ibkr.regime_paper.example.json scan
+.\run_regime_paper_scan.ps1
+```
+
+If the IBKR account has no API news subscription, prepare a current headline
+input instead. The example file is a schema sample and must not be treated as
+current news:
+
+```powershell
+python build_daily_market_context.py --input .\market_context.input.example.json
+python run_ibkr_regime_paper.py --config .\config.ibkr.regime_paper.example.json scan
+```
+
+After a paper entry is actually filled, explicitly tag only that strategy
+position so later scans can evaluate the shoulder exit. Untagged broker
+positions are never treated as strategy positions:
+
+```powershell
+python run_ibkr_regime_paper.py --config .\config.ibkr.regime_paper.example.json record-entry --symbol QQQ --quantity 1 --entry-price 500.00 --stop-price 492.00
+python run_ibkr_regime_paper.py --config .\config.ibkr.regime_paper.example.json record-exit --symbol QQQ
+```
+
+See `IBKR_REGIME_PAPER_GUIDE.md` for the strategy rules and the paper-validation
+gate.
+
 Optimized forward paper check without touching the broker:
 
 ```powershell
@@ -118,6 +147,17 @@ The current default only activates:
 
 This keeps the door open for more symbols while the live checklist starts from
 the group that tested best in the recent 30-day comparison.
+
+`universe.professional_paper.json` is a separate lower-risk research universe:
+
+- Broad market 1x: SPY, QQQ, IWM
+- Semiconductors 1x: SOXX
+- Defensive diversifiers: TLT, GLD
+- Leveraged research only, disabled by default: SOXL, TQQQ
+
+The daily context may block or reduce risk inside this fixed whitelist. It may
+not add a new ticker from a headline. SOXL and SOXS are protected by default so
+the new strategy cannot manage an older recovery position.
 
 ## Current Guardrails
 
@@ -163,6 +203,13 @@ position size. Keep it as a candidate until manually approved.
 - `config.ibkr.example.json`: IBKR dry-run/paper/live gated configuration.
 - `IBKR_AUTOTRADE_PLAN.md`: IBKR phased setup and safety procedure.
 - `requirements-ibkr.txt`: Python dependency for TWS API integration.
+- `config.ibkr.regime_paper.example.json`: read-only diversified paper scanner settings.
+- `universe.professional_paper.json`: fixed metadata-rich research whitelist.
+- `collect_ibkr_news_context.py`: subscribed IBKR-news risk context collector.
+- `build_daily_market_context.py`: manual/current-headline fallback context builder.
+- `run_ibkr_regime_paper.py`: closed-bar entry/exit evaluator with no order-placement path.
+- `run_regime_paper_scan.ps1`: fail-closed news collection plus one paper scan.
+- `IBKR_REGIME_PAPER_GUIDE.md`: design, workflow, and validation gate.
 - `reports/imeritz_excel_rtd.md`: read-only iMeritz Excel RTD inspection.
 - `account_snapshot.json`: latest user-confirmed `[6110]` balance snapshot.
 - `update_account_snapshot.ps1`: refreshes the local balance snapshot.

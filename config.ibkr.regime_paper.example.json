@@ -1,0 +1,84 @@
+{
+  "connection": {
+    "host": "127.0.0.1",
+    "port": 7497,
+    "client_id": 61,
+    "readonly": true,
+    "timeout_seconds": 10
+  },
+  "safety": {
+    "dry_run": true,
+    "paper_only": true,
+    "allow_order_create": false,
+    "transmit_orders": false,
+    "allowed_symbols": ["SPY", "QQQ", "IWM", "SOXX", "TLT", "GLD"],
+    "paper_ports": [7497, 4002],
+    "max_order_qty": 5,
+    "limit_order_only": true,
+    "outside_rth": false,
+    "tif": "DAY",
+    "order_ref": "regime-knee-shoulder-v1"
+  },
+  "market_data": {
+    "duration": "10 D",
+    "bar_size": "15 mins",
+    "bar_minutes": 15,
+    "use_rth": true,
+    "max_completed_bar_age_minutes": 20,
+    "ibkr_market_data_type": 1
+  },
+  "account": {
+    "risk_per_trade_pct": 0.0025,
+    "max_daily_loss_pct": 0.005,
+    "max_position_pct": 0.1,
+    "max_gross_exposure_pct": 0.3,
+    "max_positions": 2,
+    "max_shares_per_trade": 5,
+    "external_gross_notional_usd": 0.0,
+    "require_realized_pnl": true
+  },
+  "strategy": {
+    "strategy_id": "regime-knee-shoulder-v1",
+    "universe_path": "universe.professional_paper.json",
+    "active_groups": [
+      "Broad Market 1x",
+      "Semiconductors 1x",
+      "Defensive Diversifiers"
+    ],
+    "benchmarks": ["SPY", "QQQ", "SOXX"],
+    "protected_symbols": ["SOXL", "SOXS"],
+    "block_existing_positions": true,
+    "market_context_path": "data/market_context_latest.json",
+    "require_fresh_context": true,
+    "regime_fast_ema": 20,
+    "regime_slow_ema": 50,
+    "regime_momentum_bars": 5,
+    "risk_on_threshold": 0.66,
+    "risk_off_threshold": 0.34,
+    "entry_fast_ema": 20,
+    "entry_slow_ema": 50,
+    "exit_fast_ema": 10,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "pullback_lookback": 8,
+    "pullback_tolerance_atr": 0.5,
+    "max_pullback_break_atr": 0.75,
+    "min_entry_rsi": 40,
+    "max_entry_rsi": 65,
+    "max_atr_pct": 0.05,
+    "max_entry_extension_atr": 1.25,
+    "min_volume_ratio": 0.8,
+    "min_entry_checks": 8,
+    "initial_stop_atr": 1.5,
+    "stop_below_pullback_atr": 0.15,
+    "trail_activation_r": 1.0,
+    "trailing_atr": 2.25,
+    "max_hold_bars": 52,
+    "time_stop_min_r": 0.25
+  },
+  "runtime": {
+    "state_path": "data/regime_paper_state.json",
+    "report_json_path": "reports/ibkr_regime_paper_latest.json",
+    "report_markdown_path": "reports/ibkr_regime_paper_latest.md"
+  }
+}
